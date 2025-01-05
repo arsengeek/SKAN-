@@ -1,0 +1,612 @@
+.main-section {
+    height:100vh;
+    width: 100%;
+    padding-top: 122px;
+}  
+.main-section h2 {
+    width:90%;
+    position: absolute;
+    font-family: 'Ferry';
+    text-align: left;
+    font-weight: 900;
+    font-size: 22px;
+    margin-left: 14px;
+    margin-top: 10vw
+}
+.image {
+    position: absolute;
+    margin-top: 50vw;
+    margin-left: 10vw;
+    width: 50%;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../assets/Group 1171274237.png);
+
+}
+.login-form {
+    width: 100%;
+    height: 100vh;
+    margin-top: 30vw;
+}
+.login-form p:nth-child(1) {
+    position: absolute;
+    font-family: 'Inter';
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 60px;
+    margin-top: 50vw;
+    color:#029491;
+}
+.login-form p:nth-child(2) {
+    position: absolute;
+    font-family: 'Inter';
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 170px;
+    margin-top: 50vw;
+    color:#C7C7C7;
+}
+.rectangle1 {
+    position: absolute;
+    width: 103px;
+    height: 2px;
+    background-color: #029491;
+    margin-top: 58vw;
+    margin-left: 30px;
+}
+.rectangle2 {
+    position: absolute;
+    width: 182px;
+    height: 2px;
+    background-color: #C7C7C7;
+    margin-top: 58vw;
+    margin-left: 152px;
+}
+.login-form form {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    margin-top: 70vw;
+}
+.login {
+    position: absolute;
+    font-family: 'Inter';
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 29px;
+    margin-top: 0vw;
+    color:#949494;
+}
+.password {
+    position: absolute;
+    font-family: 'Inter';
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 29px;
+    margin-top: 27vw;
+    color:#949494;
+}
+.input-login {
+    width: 305px;
+    height: 43px;
+    position: absolute;
+    font-family: 'Inter';
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 29px;
+    border-radius: 5px;
+    margin-top: 10vw;
+    border-width: 0px;
+    border-color: #C7C7C7;
+    filter:drop-shadow(0px 0px 1px black)
+
+}
+.input-error-login {
+    width: 305px;
+    height: 43px;
+    position: absolute;
+    font-family: 'Inter';
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 29px;
+    border-radius: 5px;
+    margin-top: 10vw;
+    border-width: 1px;
+    border-color: red;
+
+}
+.input-password {
+    width: 305px;
+    height: 43px;
+    position: absolute;
+    font-family: 'Inter';
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 29px;
+    border-radius: 5px;
+    margin-top: 37vw;
+    border-width: 0px;
+    border-color: #C7C7C7;
+    filter:drop-shadow(0px 0px 1px black)
+
+}
+.input-error-password {
+    width: 305px;
+    height: 43px;
+    position: absolute;
+    font-family: 'Inter';
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 29px;
+    border-radius: 5px;
+    margin-top: 37vw;
+    border-width: 1px;
+    border-color: red;
+
+}
+.login-button {
+    width: 305px;
+    height: 59px;
+    margin-left: 29px;
+    margin-top: 60vw;
+    background-color: #5970FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 20px;
+    opacity: .5;
+}
+.login-button.active {
+    width: 305px;
+    height: 59px;
+    margin-left: 29px;
+    margin-top: 60vw;
+    background-color: #5970FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 20px;
+    opacity: 1;
+}
+.error-text-login{
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 23vw;
+    color: red;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 12px;
+    opacity: 1;
+}
+.error-text-password{
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 50vw;
+    color: red;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 12px;
+    opacity: 1;
+}
+.password-recover {
+    position: absolute;
+    text-decoration: underline;
+    margin-left: -225px;
+    color: #5970FF;
+    margin-top: 80vw;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 1;
+}
+.login-def {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap:10px;
+    height: 40vw;
+    width: 100%;
+    margin-top: 25vw;
+    margin-left: -5px;
+}
+.login-def-text {
+    position: absolute;
+    margin-top: 15vw;
+    color: #949494;
+    text-align: left;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    opacity: 1;
+    margin-left: 29px;
+}
+.google {
+    border: 1px solid #5970FF82;
+    width: 96px;
+    height: 31px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../assets/Group 1171274227.png);
+    
+} 
+.facebook {
+    border: 1px solid #5970FF82;
+    width: 96px;
+
+    height: 31px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../assets/Vector.png);
+    
+} 
+.yandex {
+    border: 1px solid #5970FF82;
+    width: 96px;
+    height: 31px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../assets/Group 1171274228.png);
+    
+} 
+.image-key {
+    width: 85%;
+    height: 60%;
+    background-image: url(../assets/Characters.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 40vw;
+    margin-left: 14px;
+}
+.footer2-login {
+    position: relative;
+    margin-top:110vw;
+    max-width: 1920px;
+    width: 100%;
+    height: 137px;
+    background-color: #029491;
+}
+.link-home {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+@media screen and (min-width:480px) {
+    .main-section {
+        height:90vh;
+        width: 100%;
+        padding-top: 122px;
+    }  
+    .main-section h2 {
+        width:50%;
+        position: absolute;
+        font-family: 'Ferry';
+        text-align: left;
+        font-weight: 900;
+        font-size: 2.5rem;
+        margin-left: 60px;
+        margin-top:6vw;
+    }
+    .link-home {
+        color: black;
+        text-decoration: none;
+    }
+    .image {
+        position: absolute;
+        margin-top: 2vw;
+        margin-left: 33vw;
+        width: 50%;
+        height: 130px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url(../assets/Group 1171274237.png);
+        z-index: 1;
+    }
+    .login-form {
+        width: 100%;
+        height: 0vh;
+        margin-top: 10vw;
+        margin-left: 65vw;
+    }
+    .login-form p:nth-child(1) {
+        position: absolute;
+        font-family: 'Inter';
+        text-align: left;
+        font-weight: 400;
+        font-size: 16px;
+        margin-left: 0px;
+        margin-top: -1.5vw;
+        color:#029491;
+    }
+    .login-form p:nth-child(2) {
+        position: absolute;
+        font-family: 'Inter';
+        text-align: left;
+        font-weight: 400;
+        font-size: 16px;
+        margin-left: 150px;
+        margin-top: -1.5vw;
+        color:#C7C7C7;
+    }
+    .rectangle1 {
+        position: absolute;
+        width: 151px;
+        height: 2px;
+        background-color: #029491;
+        margin-left: -50px;
+        margin-top:-.1vw;
+    }
+    .rectangle2 {
+        position: absolute;
+        width: 213px;
+        height: 2px;
+        background-color: #C7C7C7;
+        margin-left: 130px;
+        margin-top:-.1vw;
+    }
+    
+    .login-form form {
+        position: absolute;
+        width: 100%;
+        height: 10vh;
+        margin-top: 0vw;
+        box-shadow: 1px 0 0 black;
+    }
+    .login {
+        position: absolute;
+        font-family: 'Inter';
+        text-align: left;
+        font-weight: 400;
+        font-size: 16px;
+        margin-left: -50px;
+        margin-top: 2.5vw;
+        color:#949494;
+    }
+    .password {
+        position: absolute;
+        font-family: 'Inter';
+        text-align: left;
+        font-weight: 400;
+        font-size: 16px;
+        margin-left: -50px;
+        margin-top: 7vw;
+        color:#949494;
+    }
+    .input-login {
+        width: 379px;
+        height: 43px;
+        position: absolute;
+        font-family: 'Inter';
+        text-align: left;
+        font-weight: 400;
+        font-size: 14px;
+        margin-left: -50px;
+        border-radius: 5px;
+        margin-top: 4vw;
+        border-width: 0px;
+        border-color: #C7C7C7;
+        filter:drop-shadow(0px 0px 1px black)
+    
+    }
+    .input-error-login {
+        width: 379px;
+        height: 43px;
+        position: absolute;
+        font-family: 'Inter';
+        text-align: left;
+        font-weight: 400;
+        font-size: 14px;
+        margin-left: -50px;
+        border-radius: 5px;
+        margin-top: 4vw;
+        border-width: 0px;
+        border-color: red;
+        filter:drop-shadow(0px 0px 1px black)
+    
+    }
+    .input-password {
+        width: 379px;
+        height: 43px;
+        position: absolute;
+        font-family: 'Inter';
+        text-align: left;
+        font-weight: 400;
+        font-size: 14px;
+        margin-left: -50px;
+        border-radius: 5px;
+        margin-top: 8.5vw;
+        border-width: 0px;
+        border-color: #C7C7C7;
+        filter:drop-shadow(0px 0px 1px black)
+    }
+    .input-error-password {
+        width: 379px;
+        height: 43px;
+        position: absolute;
+        font-family: 'Inter';
+        text-align: left;
+        font-weight: 400;
+        font-size: 14px;
+        margin-left: -50px;
+        border-radius: 5px;
+        margin-top: 8.5vw;
+        border-width: 0px;
+        border-color: red;
+        filter:drop-shadow(0px 0px 1px black)
+    
+    }
+    .box-shadow {
+        position: absolute;
+        width: 450px;
+        height: 50vh;
+        margin-left: -5.4vw;
+        margin-top: -5vw;
+        border-radius: 2%;
+        box-shadow: 0px 0px 15px  #C7C7C7;
+    }
+    .login-button {
+        width: 379px;
+        height: 59px;
+        margin-left: -50px;
+        margin-top: 12vw;
+        background-color: #5970FF;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 5px;
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 20px;
+        opacity: .5;
+    }
+    .login-button.active {
+        width: 379px;
+        height: 59px;
+        margin-left: -50px;
+        margin-top: 12vw;
+        background-color: #5970FF;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 5px;
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 20px;
+        opacity: 1;
+    }
+    .error-text-login{
+        position: absolute;
+        margin-left: 40px;
+        margin-top: 6.5vw;
+        color: red;
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 14px;
+        opacity: 1;
+    }
+    .error-text-password{
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 6.8vw;
+        color: red;
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 14px;
+        opacity: 1;
+    }
+    .password-recover {
+        position: absolute;
+        text-decoration: underline;
+        margin-left: -260px;
+        color: #5970FF;
+        margin-top: 16vw;
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 14px;
+        opacity: 1;
+    }
+    .login-def {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap:10px;
+        height: 10vw;
+        width: 20%;
+        margin-top: 5vw;
+        margin-left: -3.2vw;
+    }
+    .login-def-text {
+        position: absolute;
+        margin-top: 3.5vw;
+        color: #949494;
+        text-align: left;
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 16px;
+        opacity: 1;
+        margin-left: -50px;
+    }
+    .google {
+        border: 1px solid #5970FF82;
+        width: 96px;
+        height: 31px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url(../assets/Group 1171274227.png);
+        
+    } 
+    .facebook {
+        border: 1px solid #5970FF82;
+        width: 96px;
+    
+        height: 31px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url(../assets/Vector.png);
+        
+    } 
+    .yandex {
+        border: 1px solid #5970FF82;
+        width: 96px;
+        height: 31px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url(../assets/Group 1171274228.png);
+        
+    } 
+    .image-key {
+        position: absolute;
+        width: 25vw;
+        height: 25vw;
+        background-image: url(../assets/Characters.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:90%;
+        margin-top: -10vw;
+        margin-left: -55vw;
+        max-width: 50vw; 
+        max-height: 50vw;
+    }
+    .footer2-login {
+        position: absolute;
+        margin-top:65vh;
+        max-width: 100vw;
+        width: 100%;
+        height: 137px;
+        background-color: #029491;
+    }
+    .logo-footer {
+        position: absolute;
+        width: 141px;
+        height: 141px;
+        margin-left: 50px;
+        z-index: 999;
+        opacity: 1;
+    }
+    
+}
+@media screen and (min-width:1920px) {
+    .box-shadow {
+        position: absolute;
+        width: 500px;
+        height: 60vh;
+        margin-left: -5.3vw;
+        margin-top: -5vw;
+        border-radius: 2%;
+        box-shadow: 0px 0px 0px  black;
+    }
+}

@@ -1,0 +1,485 @@
+.main {
+    margin-top: 35vw;
+}
+
+.container-publications {
+    width: 100%;
+    gap:0px;
+    position: absolute;
+    display: flex;
+    justify-content:center;
+    flex-direction: column; 
+    margin-top: 10vw;
+}
+.form {
+    position: absolute;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    color: white;
+    display: flex;
+    margin-top: 10vw;
+    width: 298px;
+    height: 75px;
+    border-radius: 10px 10px 0 0;
+    background-color: #029491;
+}
+.head-text {
+    width: 340px;
+    font-family: Ferry;
+    font-weight: 900;
+    font-size: 28px;
+    margin-left: 14px;
+}
+.back-head-text {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: 14px;
+    margin-top: 5vw;
+}
+.background-head {
+    width: 350px;
+    height: 65vw;
+    margin-left: 5px;
+    margin-top: 5vw;
+    background-size: contain ;
+
+    background-repeat: no-repeat;
+    background-image: url(../assets/Group 1171274267.png);
+
+}
+.loader p {
+    font-family: Ferry;
+    font-weight: 400;
+    font-size: 40px;
+    margin-top: 80vw;
+    transition: .2s ease-in;
+    
+}
+
+.form p {
+    justify-content: center;
+    font-family: Inter;
+    font-size:1.125rem;
+    font-weight: 500;
+    
+}
+
+.loader, .error, .no-data {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 0px;
+    margin-top: 0vw;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 298px;
+    height: 75px;
+    margin-top: 30vw;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    text-align: center;
+}
+.data-text {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: -50vw;
+    margin-top: 1vw;
+}
+.all {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 0vw;
+    margin-top: -5.5vw; 
+}
+.risks { 
+    width: 90px;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left:48vw;
+    margin-top: -5.5vw; 
+}
+.carousel-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carousel-button:hover {
+    background-color: #0056b3;
+}
+.arrow-1-results {
+    position: absolute;
+    margin-top:110px;
+    margin-left: -330px;
+}
+.arrow-2-results {
+    position: absolute;
+    rotate: -180deg;
+    margin-left: 300px;
+    margin-top: -60px;
+
+}
+.back-text {
+    font-family: Ferry;
+    font-weight: 900;
+    font-size: 28px;
+    margin-top: 10vw;
+    margin-left: 14px;
+}
+.counts-text {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: 14px;
+    margin-top: 5vw;
+}
+.documents-section {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.text-documents {
+    display: flex;
+    font-family: Ferry;
+    font-weight: 900;
+    font-size: 28px;
+    margin-top: 20vw;
+    margin-left: 14px;
+}
+.data-publication-name {
+    width: 212px;
+
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Inter;
+    color: #949494;
+    text-decoration: underline;
+    margin-left: 38px;
+    margin-top: 50px;
+}
+.title-text-publication {
+    width: 297px;
+    height: 69px;
+    margin-left: 38px;
+    margin-top: 10px;
+    font-family: Inter;
+    font-size: 19px;
+    font-weight: 500;
+}
+.image-publication {
+    width: 297px;
+    height: 158px;
+    margin-left: 38px;
+    margin-top: 20px;
+}
+.extracted-text {
+    width:290px;
+    height: 255px;
+    font-family: Inter;
+    font-size:12px;
+    font-weight: 400;
+    opacity: .5;
+    margin-left: 38px;
+}
+.button-publication {
+    width: 195px;
+    height: 40.7px;
+    background-color: #7CE3E1;
+    color: black;
+    border: none;
+    border-radius:5px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 38px;
+    margin-top: 70px;
+}
+
+@media only screen and (min-width:480px) {
+    .main {
+        margin-top: 10vw;
+    }
+    
+    .form {
+        position: absolute;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:30px;
+        color: white;
+        display: flex;
+        margin-top: -2px;
+        left: 5%;
+        width: 10.2vw;
+        height: 16.8vh;
+        border-radius: 10px 0 0 10px;
+        background-color: #029491;
+    }
+    .head-text {
+        width: 489px;
+        font-family: Ferry;
+        font-weight: 900;
+        font-size: 40px;
+        margin-left: 60px;
+    }
+    .back-head-text {
+        width: 450px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 20px;
+        margin-left: 60px;
+        margin-top: 3vw;
+    }
+    .background-head {
+        width: 552px;
+        height: 369px;
+        margin-left: 784px;
+        margin-top: -15vw;
+        background-size: contain ;
+    
+        background-repeat: no-repeat;
+        background-image: url(../assets/Group 1171274267.png);
+    
+    }
+    .loader p {
+        font-family: Ferry;
+        font-weight: 400;
+        font-size: 40px;
+        margin-top: 80vw;
+        transition: .2s ease-in;
+        
+    }
+
+    .form p {
+        justify-content: center;
+        font-family: Inter;
+        font-size:1.125rem;
+        font-weight: 500;
+    }
+    
+    .loader, .error, .no-data {
+        text-align: center;
+        padding: 20px;
+        font-size: 18px;
+    }
+    
+    .carousel {
+        width: 10vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between  ;
+        gap: 0px;
+        margin-left: 15vw;
+        margin-top: 0vw;
+    }
+    
+    .carousel-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        width: 7.5vw;
+        height:158px;
+        margin-top: 0vw;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #fff;
+        text-align: center;
+    }
+    .data-text {
+
+        font-family: Inter;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-left: 0vw;
+        margin-top: 0vw;
+    }
+    .container-form {
+        display: flex;
+        margin-top: 3vw;
+        width: 100vw;
+        height: 162px;
+        border: 2px solid #029491;
+        border-radius: 0px 10px 10px 0px;
+
+    }
+    .all {
+        font-family: Inter;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-left: 0vw;
+        margin-top: 2vw; 
+    }
+    .risks { 
+        font-family: Inter;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-left:0vw;
+        margin-top: 2vw; 
+    }
+    .carousel-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .carousel-button:hover {
+        background-color: #0056b3;
+    }
+    .arrow-1-results {
+        position: absolute;
+        margin-top:3vw;
+        left: 1vw;
+        margin-left: 0vw;
+    }
+    .arrow-2-results {
+        position: absolute;
+        rotate: -180deg;
+        right: 4vw;
+        margin-top:60px;
+    
+    }
+    .back-text {
+        font-family: Ferry;
+        font-weight: 900;
+        font-size: 30px;
+        margin-top: 5vw;
+        margin-left: 60px;
+    }
+    .counts-text {
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 16px;
+        margin-left: 530px;
+        margin-top: 5vw;
+        color:#949494;
+    }
+    .documents-section {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .text-documents {
+        position: absolute;
+        display: flex;
+        font-family: Ferry;
+        font-weight: 900;
+        font-size: 30px;
+        margin-top: -5vw;
+        left: 0px;
+    }
+    .container-publications {
+        width: 100%;
+        gap:0px;
+        position: absolute;
+        display: flex;
+        justify-content:center;
+        flex-direction: row; 
+        margin-top: 10vw;
+        margin-left: 60px;
+    }
+    .data-publication-name {
+        width: 212px;
+    
+        font-size: 14px;
+        font-weight: 400;
+        font-family: Inter;
+        color: #949494;
+        text-decoration: underline;
+        margin-left: 38px;
+        margin-top: 50px;
+    }
+    .title-text-publication {
+        width: 546px;
+        height: 69px;
+        margin-left: 38px;
+        margin-top: 10px;
+        font-family: Inter;
+        font-size: 26px;
+        font-weight: 500;
+    }
+    .image-publication {
+        width: 581px;
+        height: 158px;
+        margin-left: 38px;
+        margin-top: 0px;
+    }
+    .extracted-text {
+        width:581px;
+        height: 228px;
+        font-family: Inter;
+        font-size:16px;
+        font-weight: 400;
+        opacity: .5;
+        margin-left: 38px;
+        
+    }
+    .button-publication {
+        position: absolute;
+        width: 195px;
+        height: 40.7px;
+        background-color: #7CE3E1;
+        color: black;
+        border: none;
+        border-radius:5px;
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        margin-left: 38px;
+        margin-top: -30px;
+    }
+    .publication {
+        width: 50%;
+
+
+    }
+    .load-more-button {
+        position: absolute;
+        font-family:Inter;
+        font-weight: 500;
+        font-size: 22px;
+        color: white;
+        width: 305px;
+        height: 59px;
+        margin-top: 50vw;
+        border-radius: 5px;
+        background-color: #5970FF;
+        border: none;
+        cursor: pointer;
+    }
+}
+@media only screen and (min-width: 1439px) {
+    .data-text {
+        font-family: Inter;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-left: -.5vw;
+        margin-top: 0vw;
+    }
+}
