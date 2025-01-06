@@ -3,20 +3,18 @@ import { Link, useLocation } from 'react-router-dom';
 import './css/HistogramResults.css';
 import logoFooter from './assets/6465f70937726c512fe72d7d2f4a4889.png';
 import logo from './assets/SGN_09_24_2022_1663968217400 1.png';
-import arrow from "./assets/icons8-шеврон-вправо-90 1.png";
+
+import { ResultsSection } from './ResultsSection';
 
 const HistogramResults = () => {
     const API_URL = ('https://gateway.scan-interfax.ru/api/v1/objectsearch');
     const location = useLocation();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [data, setData] = useState(null);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(null);
     const [username, setUsername] = useState(null); 
     const [menu, setMenu] = useState(false);
     const [accountInfo, setAccountInfo] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [dataCounts, setDataCounts] = useState('');
     const [dataCountsDev, setDataCountsDev] = useState('');
     const [requestData, setRequestData] = useState(''); //Данные для получения результатов поиска
     const [requestDataPublic, setRequestDataPublic] = useState('');
@@ -30,89 +28,7 @@ const HistogramResults = () => {
 
     const PAGE_SIZE = 10;
 
-    useEffect(() => {
-        const handleResize = () => {
-          setIsMobile(window.innerWidth <= 480); 
-        };
     
-        handleResize(); 
-        window.addEventListener("resize", handleResize); 
-    
-        return () => window.removeEventListener("resize", handleResize);
-      }, []);
-
-
-    // Симуляция загрузки данных
-    useEffect(() => {
-        setTimeout(() => {
-            try {
-                const mockData = {
-                    data: [
-                        {
-                            data: [
-                                { date: '2020-11-01T03:00:00+03:00', value: 8 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 6 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 3 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 4 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 5 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 5 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 5 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 5 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 5 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 5 },
-                            ],
-                            histogramType: 'totalDocuments',
-                        },
-                        {
-                            data: [
-                                { date: '2020-11-01T03:00:00+03:00', value: 2 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 1 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 10 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 2 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 2 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 5 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 5 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 5 },
-                                { date: '2020-06-01T03:00:00+03:00', value: 5 },
-                            ],
-                            histogramType: 'riskFactors',
-                        },
-
-                        
-                    ],
-                };
-                setData(mockData);
-
-                const totalCompanies = mockData.data.reduce((acc, histogram) => {   
-                    return acc + histogram.data.length
-                }, 0);
-
-                const getWordEnding = (number) => {
-                    const lastDigit = number % 10;
-                    const lastTwoDigits = number % 100;
-    
-                    if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
-                        return 'вариантов';
-                    }
-                    if (lastDigit === 1) {
-                        return 'вариант';
-                    }
-                    if (lastDigit >= 2 && lastDigit <= 4) {
-                        return 'варианта';
-                    }
-                    return 'вариантов';
-                };
-    
-                setDataCountsDev(getWordEnding(totalCompanies)); 
-                setDataCounts(totalCompanies)
-                
-            } catch (err) {
-                setError('Ошибка при загрузке данных');
-            } finally {
-                setLoading(false);
-            }
-        }, 1000); 
-    }, []);
 
     useEffect(() => {
         setTimeout(() => {
@@ -130,7 +46,9 @@ const HistogramResults = () => {
                         },
                     ],
                 };
+                
                 setRequestData(dataPublic);
+                
                 
             } catch (err) {
                 setError('Ошибка при загрузке данных');
@@ -248,6 +166,8 @@ const HistogramResults = () => {
                   
                 setRequestDataPublic(dataPublicDoc);
                 setPublications(dataPublicDoc);
+
+            
                 
             } catch (err) {
                 setError('Ошибка');
@@ -258,8 +178,9 @@ const HistogramResults = () => {
     }, []);
 
 
+
     const handleLoadMore = () => {
-        setVisibleCount(visibleCount + 2);  
+        setVisibleCount(prev => prev + 2);
     };
 
     //парсировка
@@ -273,11 +194,11 @@ const HistogramResults = () => {
     
       const imageSrc = extractImageSrc(requestDataPublic?.data?.ok?.content?.markup);
 
-      useEffect(() => {
-        if (requestDataPublic && requestData && data) {
-            console.log(requestDataPublic, requestData, data);
-        }
-    }, [requestDataPublic, requestData, data]);
+    //   useEffect(() => {
+    //     if (requestDataPublic && requestData && data) {
+    //          console.log(requestDataPublic, requestData, data);
+    //     }
+    // }, [requestDataPublic, requestData, data]);
 
 
     
@@ -341,8 +262,8 @@ const HistogramResults = () => {
     //     if (loading) {
     //         interval = setInterval(() => {
     //             setLoader((prev) => (prev === '...' ? '' : prev + '.'));
-    //         }, 1000);
-    //     }
+     //         }, 1000);
+    //      }
     //     return () => clearInterval(interval); 
     // }, [loading]);
 
@@ -439,42 +360,14 @@ const HistogramResults = () => {
             setIsLoading(false);
         };
         
-
-
-
-    const handleNext = () => {
-        if (data) {
-            const totalDocuments = data.data.find((item) => item.histogramType === 'totalDocuments')?.data || [];
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % totalDocuments.length); 
+        if (!isLoggedIn) {
+            return <div className='login-fall'>
+                <p><span>Усп...</span> Для доступа требуется вход в аккаунт</p>
+                <Link to="/login">
+                    <button className="request-button-default">Войти</button>
+                </Link>
+            </div> 
         }
-    };
-
-    const handlePrev = () => {
-        if (data) {
-            const totalDocuments = data.data.find((item) => item.histogramType === 'totalDocuments')?.data || [];
-            setCurrentIndex((prevIndex) => (prevIndex - 1 + totalDocuments.length) % totalDocuments.length); 
-        }
-    };
-    
-
-    if (error) {
-        return (
-            <div className="error">
-                <p>{error}</p>
-            </div>
-        );
-    }
-
-    if (!data) {
-        return (
-            <div className="no-data">
-                <p>Данные не получены. Попробуйте снова.</p>
-            </div>
-        );
-    }
-
-    const totalDocuments = data.data.find((item) => item.histogramType === 'totalDocuments')?.data || [];
-    const riskFactors = data.data.find((item) => item.histogramType === 'riskFactors')?.data || [];
     
 
     return (
@@ -535,50 +428,35 @@ const HistogramResults = () => {
                 <p className='back-head-text'>Поиск может занять некоторое время, просим сохранять терпение.</p>
                 <div className='background-head'></div>
                 <h2 className='back-text'>Общая сводка</h2>
-                <h3 className='counts-text'>Найдено {dataCounts} {dataCountsDev}</h3>
                 
+                
+
                 <div className="carousel">
-                    <img onClick={handlePrev} className="arrow-1-results" src={arrow} />
                     <div className='container-form'>
                     <div className='form'>
-                        <p>Период</p>
-                        <p>Всего</p>
-                        <p>Риски</p>
-                    </div>
-                    <div className='form'>
-                        <p>Период</p>
-                        <p>Всего</p>
-                        <p>Риски</p>
-                    </div>
-                
-                        {isMobile ? (
-                            // Мобильная версия
-                            <div className="carousel-item">
-                                <h3 className='data-text'>{new Date(totalDocuments[currentIndex].date).toLocaleDateString()}</h3>
-                                <p className='all'>Всего: {totalDocuments[currentIndex]?.value}</p>
-                                <p className='risks'>Риски: {riskFactors[currentIndex]?.value || 0}</p>
-                            </div>
-                        ) : (
-                            // Компьютерная версия
-                            totalDocuments
-                                .slice(currentIndex, currentIndex + 10)
-                                .map((item, index) => (
-                                    <div key={item.id || index} className="carousel-item">
-                                        <h3 className='data-text'>{new Date(item.date).toLocaleDateString()}</h3>
-                                        <p className='all'>{item.value}</p>
-                                        <p className='risks'>{riskFactors[index]?.value || 0}</p>
-                                    </div>
-                                ))
-                        )}               
-                    <img onClick={handleNext} className="arrow-2-results" src={arrow} />
-                </div>
-                </div>
+                            <p>Период</p>
+                            <p>Всего</p>
+                            <p>Риски</p>
+                        </div>
+                        <div className='form'>
+                            <p>Период</p>
+                            <p>Всего</p>
+                            <p>Риски</p>
+                        </div>
+                            <ResultsSection/>
+`                           
+                        </div>
+                        </div>
+
                 <div className='container-publications'>
                     <h2 className='text-documents'>Список публикаций</h2>
 
                     {publications.slice(0, visibleCount).map((publication, index) => {
+                        
                         const content = parseContent(publication?.data?.ok?.content?.markup);
                         const wordCount = countWords(content);
+                        // console.log('Publications:', publications);
+                        // console.log('Visible Count:', visibleCount);
 
                         return (
                             <div key={index} className="publication">

@@ -17,46 +17,10 @@ import {Header} from './Header.js';
 export function Home() {
     const API_URL = 'https://gateway.scan-interfax.ru';
 
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const accessToken = localStorage.getItem('accessToken');
     const [userTariff, setTariff] = useState('pro');
-    const [username, setUsername] = useState(''); 
-    const [accountInfo, setAccountInfo] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [menu, setMenu] = useState(false);
 
-    // useEffect(() => {
-    //     const token = localStorage.getItem('authToken');
-    //     if (token) {
-    //         setIsLoggedIn(true);
-    //         const userLogin = localStorage.getItem('userLogin');
-    //         setUsername(userLogin);
-    //         fetchAccountInfo(token);
-    //     } else {
-    //         setIsLoggedIn(false);
-    //     }
-    // }, []);
 
-   
-
-    // const fetchAccountInfo = async (token) => {
-    //     try {
-    //         const response = await fetch('https://gateway.scan-interfax.ru/api/v1/account/info', {
-    //             method: 'GET',
-    //             headers: {
-    //                 'Authorization': `Bearer ${token}`,
-    //                 'Content-Type': 'application/json',
-    //                 'Accept': 'application/json',
-    //             },
-    //         });
-    //         const data = await response.json();
-    //         setAccountInfo(data.eventFiltersInfo);
-    //     } catch (error) {
-    //         console.error('Ошибка при получении данных:', error);
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
 
     return (
         <>  
@@ -73,7 +37,20 @@ export function Home() {
                 <p> сервис по поиску публикаций <br /> о компании <br />по его ИНН</p>
                 <p className="text"> Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.</p>
 
-                <Link to="/histograme"><button className='request-button' href='...'>Запросить данные</button></Link>
+                <div>
+                    {accessToken ? (
+                        <Link to="/histograme">
+                        <button className="request-button">Запросить данные</button>
+                        </Link>
+                    ) : (
+                        <div>
+                        <Link to="/login">
+                        <button className="request-button-default">Войти</button>
+                        </Link>
+                        </div>
+                    )}
+                    </div>
+
                 <div className="white-block"></div>
                 <div className='homeImage'></div>
                 <p id="pmiddle">почему именно мы</p>
@@ -260,7 +237,7 @@ export function Home() {
             
 
             <footer className="footer2">
-                <img className="logo-footer" src={logoFooter} alt="logo-footer" />
+                <div className="container-img"></div>
                 <p>г. Москва, Цветной б-р, 40 <br /> +7 495 771 21 11 <br /> info@skan.ru</p>
                 <p>Copyright. 2022</p>
             </footer>

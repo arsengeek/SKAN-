@@ -313,12 +313,12 @@
         font-family: Inter;
         font-size: 1rem;
         font-weight: 400;
-        margin-left: 0vw;
+        margin-left: -.5vw;
         margin-top: 0vw;
     }
     .container-form {
         display: flex;
-        margin-top: 3vw;
+        margin-top: 5vw;
         width: 100vw;
         height: 162px;
         border: 2px solid #029491;
@@ -336,7 +336,7 @@
         font-family: Inter;
         font-size: 1rem;
         font-weight: 400;
-        margin-left:0vw;
+        margin-left:-.8vw;
         margin-top: 2vw; 
     }
     .carousel-button {
@@ -368,17 +368,10 @@
         font-family: Ferry;
         font-weight: 900;
         font-size: 30px;
-        margin-top: 5vw;
+        margin-top: 3vw;
         margin-left: 60px;
     }
-    .counts-text {
-        font-family: Inter;
-        font-weight: 400;
-        font-size: 16px;
-        margin-left: 530px;
-        margin-top: 5vw;
-        color:#949494;
-    }
+
     .documents-section {
         position: absolute;
         display: flex;
@@ -473,6 +466,29 @@
         border: none;
         cursor: pointer;
     }
+    .login-fall {
+        display: flex;
+        width: 100vw;
+        height: 50vw;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-fall p{
+        position: absolute;
+        font-family: Ferry;
+        font-weight: 900;
+        font-size: 30px;
+        top:20vw
+    }
+    .login-fall button{
+        margin-top: 5vw;
+    }
+    .login-fall p span{
+        font-family: Ferry;
+        font-weight: 900;
+        font-size: 30px;
+        color: red
+    }
 }
 @media only screen and (min-width: 1439px) {
     .data-text {
@@ -481,5 +497,28 @@
         font-weight: 400;
         margin-left: -.5vw;
         margin-top: 0vw;
+    }
+    .risks { 
+        font-family: Inter;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-left:-.8vw;
+        margin-top: 2vw; 
+    }
+    .data-text {
+        font-family: Inter;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-left: -.5vw;
+        margin-top: 0vw;
+    }
+}
+@media only screen and (min-width:1600px) {
+    .risks { 
+        font-family: Inter;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-left:.3vw;
+        margin-top: 2vw; 
     }
 }

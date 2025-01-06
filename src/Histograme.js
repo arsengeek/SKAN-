@@ -21,6 +21,7 @@ export const Histograme = () => {
         includeDigests: false,
     });
 
+        const [isLoggedIn, setIsLoggedIn] = useState(null);
         const [responseData, setResponseData] = useState(null);
         const [loading, setLoading] = useState(false);
         const [menu, setMenu] = useState(false);
@@ -189,6 +190,16 @@ export const Histograme = () => {
             
                 validateINN(value);
             };
+
+
+            if (!isLoggedIn) {
+                return <div className='login-fall'>
+                    <p><span>Усп...</span> Для доступа требуется вход в аккаунт</p>
+                    <Link to="/login">
+                        <button className="request-button-default">Войти</button>
+                    </Link>
+                </div> 
+            }
 
     return(    
         <>  
