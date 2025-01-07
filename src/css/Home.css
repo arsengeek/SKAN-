@@ -154,8 +154,8 @@ header {
 }
 .logo-footer {
     position: absolute;
-    width: 111px;
-    height: 111px;
+    width: 0px;
+    height: 0px;
     margin-left:5vw ;
    
 }
@@ -682,6 +682,15 @@ footer p:last-child {
     z-index: 1000;
     cursor: pointer;
     opacity: 0;
+}
+.container-img {
+    position: absolute;
+    margin-left: 4.5%;
+    width: 30vw;
+    height: 30vw;
+    background-image: url(../assets/6465f70937726c512fe72d7d2f4a4889.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 @media screen and (min-width: 480px) {
     @supports (-ms-ime-align: auto) {

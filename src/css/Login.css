@@ -46,7 +46,7 @@
     text-align: left;
     font-weight: 400;
     font-size: 14px;
-    margin-left: 170px;
+    margin-left: 180px;
     margin-top: 50vw;
     color:#C7C7C7;
 }
@@ -205,7 +205,7 @@
 .password-recover {
     position: absolute;
     text-decoration: underline;
-    margin-left: -225px;
+    margin-left: -215px;
     color: #5970FF;
     margin-top: 80vw;
     font-family: 'Inter';
@@ -284,6 +284,25 @@
 .link-home {
     color: #FFFFFF;
     text-decoration: none;
+}
+.login-fall-return {
+    height: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    font-family: Ferry;
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(0, 0, 0)
+}   
+.link-home-login-fall {
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    font-family: Ferry;
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(89, 70, 255)
 }
 @media screen and (min-width:480px) {
     .main-section {
@@ -598,7 +617,28 @@
         z-index: 999;
         opacity: 1;
     }
-    
+    .login-fall-return {
+        width: 100vw;
+        height: 30vw;
+        display: flex;
+        justify-content: center;
+        align-items:center ;
+        font-family: Ferry;
+        font-weight: 900;
+        font-size: 30px;
+        color: rgb(0, 0, 0)
+    }   
+    .link-home-login-fall {
+        width: 100vw;
+        height: 0vw;
+        display: flex;
+        justify-content: center;
+        align-items:center ;
+        font-family: Ferry;
+        font-weight: 900;
+        font-size: 30px;
+        color: rgb(89, 70, 255)
+    }
 }
 @media screen and (min-width:1920px) {
     .box-shadow {

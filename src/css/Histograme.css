@@ -307,6 +307,30 @@
     height: 0;
     font-size: 0;
 }
+.login-fall {
+    display: flex;
+    width: 100vw;
+    height: 50vw;
+    justify-content: center;
+    align-items: center;
+}
+.login-fall p{
+    position: absolute;
+    font-family: Ferry;
+    font-weight: 900;
+    font-size: 15px;
+    top:40vw
+}
+.login-fall button{
+    margin-top: 5vw;
+    margin-right: 5vw;
+}
+.login-fall p span{
+    font-family: Ferry;
+    font-weight: 900;
+    font-size: 15px;
+    color: red
+}
 
 @media only screen and (min-width:480px) {
     .section {
@@ -653,4 +677,28 @@
         font-family: Inter;
         font-size: 18px;
     }
+    .login-fall {
+        display: flex;
+        width: 100vw;
+        height: 50vw;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-fall p{
+        position: absolute;
+        font-family: Ferry;
+        font-weight: 900;
+        font-size: 30px;
+        top:20vw
+    }
+    .login-fall button{
+        margin-top: 5vw;
+    }
+    .login-fall p span{
+        font-family: Ferry;
+        font-weight: 900;
+        font-size: 30px;
+        color: red
+    }
+
 }

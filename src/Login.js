@@ -8,6 +8,8 @@ import "./css/Home.css";
 export const Login = () => {
     const API_URL = 'https://gateway.scan-interfax.ru';
 
+    const accessToken = localStorage.getItem("accessToken")
+
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
@@ -19,12 +21,20 @@ export const Login = () => {
     const [username, setUsername] = useState(null); 
     const [accountInfo, setAccountInfo] = useState(null);
 
-
+    if(accessToken) {
+        return (
+        <>
+            <div className="login-fall-return">Вы уже вошли</div>
+            <p><Link to="/" className="link-home-login-fall">Главная</Link></p>
+        </>
+        )
+    }
 
     const fetchAccountLogin = async (login, password) => {
         setLoading(true);
         setLoginError(false); 
         setPasswordError(false);  
+
 
         try {
             const response = await fetch(`${API_URL}/api/v1/account/login`, {
@@ -73,6 +83,7 @@ export const Login = () => {
         }
     };
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -91,6 +102,8 @@ export const Login = () => {
             fetchAccountLogin(login, password);
         }
     };
+
+    
 
     return (
         <>
@@ -201,10 +214,10 @@ export const Login = () => {
                     </form>
                 </div>    
                 <footer className="footer2-login">
-                                <img className="logo-footer" src={logoFooter} alt="logo-footer" />
-                                <p>г. Москва, Цветной б-р, 40 <br /> +7 495 771 21 11 <br /> info@skan.ru</p>
-                                <p>Copyright. 2022</p>
-                </footer>
+                <div className="container-img"></div>
+                <p>г. Москва, Цветной б-р, 40 <br /> +7 495 771 21 11 <br /> info@skan.ru</p>
+                <p>Copyright. 2022</p>
+            </footer>
             </main>
         </>
     );

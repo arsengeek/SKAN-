@@ -1,15 +1,11 @@
 import React from "react";
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import Login from './Login.js';
-import logoFooter from "./assets/6465f70937726c512fe72d7d2f4a4889.png";
-import logo from "./assets/SGN_09_24_2022_1663968217400 1.png";
 import './css/Histograme.css'
 import { Header } from "./Header.js";
 
 export const Histograme = () => {
     
-    const API_URL = 'https://gateway.scan-interfax.ru';
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         maxFullness: false,
@@ -22,10 +18,7 @@ export const Histograme = () => {
     });
 
         const accessToken = localStorage.getItem('accessToken');
-        const [isLoggedIn, setIsLoggedIn] = useState(true);
-        const [responseData, setResponseData] = useState(null);
         const [loading, setLoading] = useState(false);
-        const [menu, setMenu] = useState(false);
         const [inn, setInn] = useState("");
         const [error, setError] = useState("");
         const [errordate, setErrorDate] = useState(false);
@@ -47,17 +40,17 @@ export const Histograme = () => {
         const handleChange = (e) => {
             const value = e.target.value;
             
-            // Оставляем только цифры
+
             const sanitizedValue = value.replace(/[^0-9]/g, '');
             
-            setInn(sanitizedValue); // Обновляем состояние ИНН
-            validateINN(sanitizedValue); // Проверка ИНН
+            setInn(sanitizedValue);
+            validateINN(sanitizedValue); 
         };
         
         const validateINN = (value) => {
-            const innRegex = /^\d{10}$|^\d{12}$/; // ИНН может быть длиной 10 или 12 цифр
+            const innRegex = /^\d{10}$|^\d{12}$/; 
             if (innRegex.test(value)) {
-                if (errorinn !== "") setErrorInn(""); // Избегаем лишнего вызова setState
+                if (errorinn !== "") setErrorInn("");
                 return true;
             } else {
                 if (errorinn === "") setErrorInn("ИНН должен содержать 10 или 12 цифр.");
@@ -172,14 +165,7 @@ export const Histograme = () => {
                 !error
             );
         };
-
         
-
-
-
-
-
-
             if (!accessToken) {
                 return <div className='login-fall'>
                     <p><span>Усп...</span> Для доступа требуется вход в аккаунт</p>

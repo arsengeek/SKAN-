@@ -7,6 +7,7 @@ import './css/Home.css';
 
 export const Header = () => {
     
+        
         const accessToken = localStorage.getItem('accessToken');
         const expire = localStorage.getItem('expire');
         const [username, setUsername] = useState(''); 
@@ -24,7 +25,7 @@ export const Header = () => {
                 setLoading(true);
         
                 try {
-                    const response = await fetch('https://gateway.scan-interfax.ru/api/v1/account/info', {
+                        const response = await fetch('https://gateway.scan-interfax.ru/api/v1/account/info', {
                         method: 'GET',
                         headers: {
                             'Authorization': `Bearer ${accessToken}`,
