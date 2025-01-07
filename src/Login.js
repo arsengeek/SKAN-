@@ -1,9 +1,8 @@
 import React, { useState } from "react"; 
 import { Link } from 'react-router-dom';
-import logoFooter from "./assets/6465f70937726c512fe72d7d2f4a4889.png";
-import logo from "./assets/SGN_09_24_2022_1663968217400 1.png";
 import "./css/Login.css";
 import "./css/Home.css";
+import {Header} from './Header.js';
 
 export const Login = () => {
     const API_URL = 'https://gateway.scan-interfax.ru';
@@ -107,55 +106,7 @@ export const Login = () => {
 
     return (
         <>
-            <header>
-                <img className={menu ? "logo-none" : "logo"} src={logo} alt="logo" />
-                <div className="hamburger" onClick={() => setMenu(true)}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <nav className="nav">
-                    <p><Link to="/" className="link-home">Главная</Link></p>
-                    <p>Тарифы</p>
-                    <p>FAQ</p>
-                </nav>
-
-                {isLoggedIn ? (
-                                    <div>
-                                        <h2>{username}!</h2>
-                                        {loading ? (
-                                            <p>Загрузка информации об аккаунте...</p>
-                                        ) : (
-                                            <div>
-                                                <p>Использовано компаний: {accountInfo?.usedCompanyCount}</p>
-                                                <p>Лимит компаний: {accountInfo?.companyLimit}</p>
-                                            </div>
-                                        )}
-                                    </div>
-                                ) : (
-                                    <div className='reg-form'>
-                                        <p>Зарегистрироваться</p>
-                                        <div></div>
-                                        <button className="reg-button">
-                                            <Link className="link-button-reg" to="/login">Войти</Link>
-                                        </button>
-                                    </div>
-                                )}
-
-                <div className={menu ? "menu" : "menu-none"}>
-                    <img src={logoFooter} alt="logo-footer" />
-                    <div className="exit" onClick={() => setMenu(false)}></div>
-                    <ul>
-                        <li><Link to="/" className="link-home">Главная</Link></li>
-                        <li>Тарифы</li>
-                        <li>FAQ</li>
-                    </ul>
-                    <p>Зарегистрироватся</p>
-                        <Link to="/login"><button className="link-button-reg">Войти</button></Link>
-
-                </div>
-            </header>
+            <Header />
 
             <main className="main-section">
                 <h2>Для оформления подписки<br /> на тариф, необходимо авторизоваться.</h2>

@@ -1,26 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from 'react-router-dom';
-import Login from './Login.js';
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import logoFooter from "./assets/6465f70937726c512fe72d7d2f4a4889.png";
-import logo from "./assets/SGN_09_24_2022_1663968217400 1.png";
-import loadgif from "./assets/4.gif";
 import './css/Home.css';
 import './css/tariffs.css';
 import icon from "./assets/Mask group.png";
 import glass from "./assets/Mask group2.png";
 import security from "./assets/Mask group3.png";
 import arrow from "./assets/icons8-шеврон-вправо-90 1.png";
-import begginerImg from "./assets/Group 1171274215.svg";
-import proImg from "./assets/Group 1171274216.svg";
 import {Header} from './Header.js';
 
 export function Home() {
-    const API_URL = 'https://gateway.scan-interfax.ru';
 
     const accessToken = localStorage.getItem('accessToken');
     const [userTariff, setTariff] = useState('pro');
-
-
 
     return (
         <>  

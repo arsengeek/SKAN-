@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Header } from './Header';
 import './css/HistogramResults.css';
-import loadgif from "./assets/4.gif";
-
-
 import { ResultsSection } from './ResultsSection';
 
 const HistogramResults = () => {
