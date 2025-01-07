@@ -1,0 +1,7 @@
+accesToken - acces
+component Home - acces
+component Login - acces
+component Header - acces
+Histograme API - acces 
+ResultsSection - acces
+HistogrameREsults - accec

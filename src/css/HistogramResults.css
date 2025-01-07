@@ -5,12 +5,13 @@
 .container-publications {
     width: 100%;
     gap:0px;
-    position: absolute;
+    position: relative;
     display: flex;
     justify-content:center;
     flex-direction: column; 
     margin-top: 10vw;
 }
+
 .form {
     position: absolute;
     flex-direction: row;
@@ -129,8 +130,9 @@
 }
 .arrow-1-results {
     position: absolute;
-    margin-top:110px;
-    margin-left: -330px;
+    margin-top:-60px;
+    margin-left: -40px;
+    z-index: 9999;
 }
 .arrow-2-results {
     position: absolute;
@@ -146,13 +148,7 @@
     margin-top: 10vw;
     margin-left: 14px;
 }
-.counts-text {
-    font-family: Inter;
-    font-weight: 400;
-    font-size: 18px;
-    margin-left: 14px;
-    margin-top: 5vw;
-}
+
 .documents-section {
     position: absolute;
     display: flex;
@@ -160,12 +156,12 @@
     flex-direction: column;
 }
 .text-documents {
-    display: flex;
+    position: sticky;
+    top: 0;  /* Элемент фиксируется в верхней части */
+    margin-left: 14px;
     font-family: Ferry;
     font-weight: 900;
     font-size: 28px;
-    margin-top: 20vw;
-    margin-left: 14px;
 }
 .data-publication-name {
     width: 212px;
@@ -215,10 +211,25 @@
     margin-left: 38px;
     margin-top: 70px;
 }
+.footer2-results {
+
+    bottom:10px;
+    max-width: 1920px;
+    width: 100%;
+    height: 137px;
+    background-color: #029491;
+}
 
 @media only screen and (min-width:480px) {
+    .container-results {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
     .main {
         margin-top: 10vw;
+        flex: 1 1 auto 
     }
     
     .form {
@@ -320,7 +331,7 @@
         display: flex;
         margin-top: 5vw;
         width: 100vw;
-        height: 162px;
+        height: 16.8vh;
         border: 2px solid #029491;
         border-radius: 0px 10px 10px 0px;
 
@@ -388,9 +399,8 @@
         left: 0px;
     }
     .container-publications {
-        width: 100%;
+        width: 100vw;
         gap:0px;
-        position: absolute;
         display: flex;
         justify-content:center;
         flex-direction: row; 
@@ -434,8 +444,8 @@
         
     }
     .button-publication {
-        position: absolute;
-        width: 195px;
+
+        width: 223px;
         height: 40.7px;
         background-color: #7CE3E1;
         color: black;
@@ -445,26 +455,35 @@
         font-size: 14px;
         font-weight: 400;
         margin-left: 38px;
-        margin-top: -30px;
+        margin-top: 20px;
+        margin-bottom: 100px;
+        cursor: pointer;
     }
     .publication {
         width: 50%;
 
-
+    }
+    .button-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        margin-bottom: 10px;
     }
     .load-more-button {
-        position: absolute;
+        display: flex;
         font-family:Inter;
         font-weight: 500;
         font-size: 22px;
+        justify-content: center;
+        align-items: center;
         color: white;
-        width: 305px;
-        height: 59px;
-        margin-top: 50vw;
+        width: 20vw;
+        height: 4vw;
         border-radius: 5px;
         background-color: #5970FF;
         border: none;
-        cursor: pointer;
+        cursor: pointer
     }
     .login-fall {
         display: flex;
@@ -489,6 +508,7 @@
         font-size: 30px;
         color: red
     }
+
 }
 @media only screen and (min-width: 1439px) {
     .data-text {

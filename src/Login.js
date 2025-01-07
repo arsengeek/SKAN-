@@ -19,7 +19,7 @@ export const Login = () => {
     const [username, setUsername] = useState(null); 
     const [accountInfo, setAccountInfo] = useState(null);
 
-    
+
 
     const fetchAccountLogin = async (login, password) => {
         setLoading(true);
@@ -44,10 +44,11 @@ export const Login = () => {
             }
 
             const data = await response.json();
-            const { accessToken, expire } = data;
+            const {accessToken, expire } = data;
 
-            localStorage.setItem('accessToken', accessToken);
-            localStorage.setItem('expire', expire);
+
+            localStorage.setItem('accessToken', JSON.stringify(accessToken));
+            localStorage.setItem('expire', JSON.stringify(expire));
 
             console.log('Access Token:', accessToken);
             console.log('Expire:', expire);

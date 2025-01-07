@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Login from './Login.js';
 import logoFooter from "./assets/6465f70937726c512fe72d7d2f4a4889.png";
 import logo from "./assets/SGN_09_24_2022_1663968217400 1.png";
@@ -203,7 +203,7 @@ export function Home() {
                             <li><div className="tick"></div>Рекомендации по приоритетам</li>
                         </ul>
                         
-                        {userTariff === 'begginer' ? (
+                        {userTariff === 'pro' ? (
                             <button className="button-pro-mobile-version">Перейти в личный кабинет</button>
                         ) : (
                             <button className="button-pro-active-mobile-version">Подробнее</button>
@@ -227,7 +227,7 @@ export function Home() {
                             <li><div className="tick"></div>Приоритетная поддержка</li>
                         </ul>
                         
-                        {userTariff === 'begginer' ? (
+                        {userTariff === 'buisness' ? (
                             <button className="button-buisness-mobile-version">Перейти в личный кабинет</button>
                         ) : (
                             <button className="button-buisness-active-mobile-version">Подробнее</button>

@@ -21,7 +21,8 @@ export const Histograme = () => {
         includeDigests: false,
     });
 
-        const [isLoggedIn, setIsLoggedIn] = useState(null);
+        const accessToken = localStorage.getItem('accessToken');
+        const [isLoggedIn, setIsLoggedIn] = useState(true);
         const [responseData, setResponseData] = useState(null);
         const [loading, setLoading] = useState(false);
         const [menu, setMenu] = useState(false);
@@ -43,6 +44,26 @@ export const Histograme = () => {
             }));
         };
 
+        const handleChange = (e) => {
+            const value = e.target.value;
+            
+            // Оставляем только цифры
+            const sanitizedValue = value.replace(/[^0-9]/g, '');
+            
+            setInn(sanitizedValue); // Обновляем состояние ИНН
+            validateINN(sanitizedValue); // Проверка ИНН
+        };
+        
+        const validateINN = (value) => {
+            const innRegex = /^\d{10}$|^\d{12}$/; // ИНН может быть длиной 10 или 12 цифр
+            if (innRegex.test(value)) {
+                if (errorinn !== "") setErrorInn(""); // Избегаем лишнего вызова setState
+                return true;
+            } else {
+                if (errorinn === "") setErrorInn("ИНН должен содержать 10 или 12 цифр.");
+                return false;
+            }
+        };
         const validateDates = () => {
             const today = new Date(); 
             const start = new Date(startDate);
@@ -79,6 +100,7 @@ export const Histograme = () => {
             setTone(e.target.value);
             console.log("Выбранная тональность:", e.target.value);
         };
+
 
         const handleDocumentCountChange = (e) => {
             const value = e.target.value;
@@ -132,39 +154,17 @@ export const Histograme = () => {
                 sortDirectionType: "asc",
             };
             setRequestData(requestData)
+            localStorage.setItem(requestData, 'requestData')
+            console.log(requestData)
         
-            try {
-              const response = await fetch(API_URL, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-                },
-                body: JSON.stringify(requestData),
-              });
-        
-              if (!response.ok) {
-                throw new Error("Ошибка при выполнении запроса.");
-              }
-        
-              const data = await response.json();
-              setResponseData(data.data); 
-              console.log("Результаты:", data.data);
               
-              navigate('/histogramresults', { state: { data: data.data } });
-    
-            } catch (err) {
-              setError("Не удалось выполнить запрос.");
-              console.error(err);
-            } finally {
-              setLoading(false);
-            }
+            navigate('/histogramresults');
+
         };
-    
 
         const isFormValid = () => {
             return (
-                inn.trim() !== "" &&
+                validateINN(inn.trim()) !== "" &&
                 tone.trim() !== "" &&
                 documentCount.trim() !== "" &&
                 startDate.trim() !== "" &&
@@ -175,24 +175,12 @@ export const Histograme = () => {
 
         
 
-            const validateINN = (value) => {
-                const innRegex = /^\d{10}$|^\d{12}$/; 
-                if (!innRegex.test(value)) {
-                    setErrorInn("ИНН должен быть 10 или 12 цифр.");
-                } else {
-                    setErrorInn("");
-                }
-            };
-
-            const handleChange = (e) => {
-                const value = e.target.value;
-                setInn(value);
-            
-                validateINN(value);
-            };
 
 
-            if (!isLoggedIn) {
+
+
+
+            if (!accessToken) {
                 return <div className='login-fall'>
                     <p><span>Усп...</span> Для доступа требуется вход в аккаунт</p>
                     <Link to="/login">
@@ -214,6 +202,7 @@ export const Histograme = () => {
                     id="inn"
                     value={inn}
                     onChange={handleChange}
+                    maxLength="12" 
                     className={`inn-input ${errorinn ? "input-error" : ""}`}
                 />
                 <p className={`text-inn ${errorinn ? "error" : ""}`}>Введите корректные данные</p>
@@ -355,9 +344,10 @@ export const Histograme = () => {
                 <div className="background-image-histograme"></div>
                 <div className="document-image"></div>
                 <div className="folders-image"></div>
+                
             </main>
             <footer className="footer2-histograme">
-                <img className="logo-footer" src={logoFooter} alt="logo-footer" />
+                <div className="container-img"></div>
                 <p>г. Москва, Цветной б-р, 40 <br /> +7 495 771 21 11 <br /> info@skan.ru</p>
                 <p>Copyright. 2022</p>
             </footer>
