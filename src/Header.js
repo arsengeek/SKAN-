@@ -6,8 +6,6 @@ import loadgif from "./assets/4.gif";
 import './css/Home.css';
 
 export const Header = () => {
-    
-        
         const accessToken = localStorage.getItem('accessToken');
         const expire = localStorage.getItem('expire');
         const [username, setUsername] = useState(''); 
