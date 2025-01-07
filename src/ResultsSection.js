@@ -7,7 +7,6 @@
   import loadgif from "./assets/4.gif";
   
 export const ResultsSection = () => {
-    const location = useLocation();
     const [loading, setLoading] = useState(false);
     const requestData = localStorage.getItem('requestData')
     const [data, setResponseData] = useState(null)
