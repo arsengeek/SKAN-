@@ -16,9 +16,7 @@ export const Login = () => {
     const [menu, setMenu] = useState(false);
     const [loginError, setLoginError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [username, setUsername] = useState(null); 
-    const [accountInfo, setAccountInfo] = useState(null);
+
 
     if(accessToken) {
         return (
