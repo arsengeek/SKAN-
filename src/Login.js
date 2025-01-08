@@ -104,6 +104,7 @@ export const Login = () => {
 
     return (
         <>
+        <wrapper className='wrapper'>
             <Header />
 
             <main className="main-section">
@@ -116,7 +117,7 @@ export const Login = () => {
                     <p>Зарегистрироваться</p>
                     <div className="rectangle1"></div>
                     <div className="rectangle2"></div>
-                    <div className="box-shadow"></div>
+
 
                     <form onSubmit={handleSubmit}>
                         <div>
@@ -162,12 +163,13 @@ export const Login = () => {
                         <div className="image-key"></div>
                     </form>
                 </div>    
-                <footer className="footer2-login">
+            </main>
+            <footer className="footer2-login">
                 <div className="container-img"></div>
                 <p>г. Москва, Цветной б-р, 40 <br /> +7 495 771 21 11 <br /> info@skan.ru</p>
                 <p>Copyright. 2022</p>
             </footer>
-            </main>
+            </wrapper>
         </>
     );
 };

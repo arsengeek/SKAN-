@@ -305,21 +305,28 @@
     color: rgb(89, 70, 255)
 }
 @media screen and (min-width:480px) {
+    .wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column
+    }
+
+    
     .main-section {
-        height:90vh;
+        height:85vh;
         width: 100%;
         padding-top: 122px;
+        flex:  1 1 auto;
     }  
     .main-section h2 {
-        width:70%;
-        
+        width:70%; 
         position: absolute;
         font-family: 'Ferry';
         text-align: left;
         font-weight: 900;
         font-size: 2.5rem;
         margin-left: 4vw;
-        margin-top:6vw;
+        margin-top:2vw;
     }
     .link-home {
         color: black;
@@ -327,10 +334,10 @@
     }
     .image {
         position: absolute;
-        margin-top: 2vw;
-        margin-left: 33vw;
-        width: 50%;
-        height: 130px;
+        margin-top: 0vw;
+        margin-left: 55vw;
+        width: 75px;
+        height: 92px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -350,7 +357,7 @@
         font-weight: 400;
         font-size: 16px;
         margin-left: 0px;
-        margin-top: -1.5vw;
+        margin-top: -6vw;
         color:#029491;
     }
     .login-form p:nth-child(2) {
@@ -360,7 +367,7 @@
         font-weight: 400;
         font-size: 16px;
         margin-left: 150px;
-        margin-top: -1.5vw;
+        margin-top: -6vw;
         color:#C7C7C7;
     }
     .rectangle1 {
@@ -369,7 +376,7 @@
         height: 2px;
         background-color: #029491;
         margin-left: -50px;
-        margin-top:-.1vw;
+        margin-top:-4.1vw;
     }
     .rectangle2 {
         position: absolute;
@@ -377,7 +384,7 @@
         height: 2px;
         background-color: #C7C7C7;
         margin-left: 130px;
-        margin-top:-.1vw;
+        margin-top:-4.1vw;
     }
     
     .login-form form {
@@ -394,7 +401,7 @@
         font-weight: 400;
         font-size: 16px;
         margin-left: -50px;
-        margin-top: 2.5vw;
+        margin-top: -.5vw;
         color:#949494;
     }
     .password {
@@ -404,7 +411,7 @@
         font-weight: 400;
         font-size: 16px;
         margin-left: -50px;
-        margin-top: 9vw;
+        margin-top: 6.5vw;
         color:#949494;
     }
     .input-login {
@@ -417,7 +424,7 @@
         font-size: 14px;
         margin-left: -50px;
         border-radius: 5px;
-        margin-top: 5vw;
+        margin-top: 2vw;
         border-width: 0px;
         border-color: #C7C7C7;
         filter:drop-shadow(0px 0px 1px black)
@@ -449,7 +456,7 @@
         font-size: 14px;
         margin-left: -50px;
         border-radius: 5px;
-        margin-top: 11vw;
+        margin-top: 9vw;
         border-width: 0px;
         border-color: #C7C7C7;
         filter:drop-shadow(0px 0px 1px black)
@@ -483,7 +490,7 @@
         width: 379px;
         height: 59px;
         margin-left: -50px;
-        margin-top: 16vw;
+        margin-top: 14vw;
         background-color: #5970FF;
         color: #FFFFFF;
         border: none;
@@ -532,7 +539,7 @@
         text-decoration: underline;
         margin-left: -260px;
         color: #5970FF;
-        margin-top: 20.5vw;
+        margin-top: 19vw;
         font-family: 'Inter';
         font-weight: 400;
         font-size: 14px;
@@ -546,7 +553,7 @@
         gap:10px;
         height: 10vw;
         width: 20%;
-        margin-top: 5vw;
+        margin-top: 6vw;
         margin-left: -3.2vw;
     }
     .login-def-text {
@@ -596,14 +603,14 @@
         background-repeat: no-repeat;
         background-size: cover;
 
-        margin-top: -10vw;
+        margin-top: -15vw;
         margin-left: -55vw;
         max-width: 50vw; 
         max-height: 50vw;
     }
     .footer2-login {
-        position: absolute;
-        margin-top:65vh;
+
+        margin-top:auto;
         max-width: 100vw;
         width: 100%;
         height: 137px;

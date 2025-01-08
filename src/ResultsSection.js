@@ -1,33 +1,42 @@
-  import React from "react";
-  import { useState, useEffect } from "react";
-  import { useLocation } from 'react-router-dom';
-  import './css/HistogramResults.css';
-  import './css/ResultsSection.css';
-  import arrow from "./assets/icons8-шеврон-вправо-90 1.png";
-  import loadgif from "./assets/4.gif";
+import React from "react";
+import { useState, useEffect } from "react";
+import './css/HistogramResults.css';
+import './css/ResultsSection.css';
+import arrow from "./assets/icons8-шеврон-вправо-90 1.png";
+import loadgif from "./assets/4.gif";
   
 export const ResultsSection = () => {
     const [loading, setLoading] = useState(false);
     const requestData = localStorage.getItem('requestData')
-    const [data, setResponseData] = useState(null)
+    const [data, setResponseData] = useState('1')
     const [error, setError] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false); 
     const [dataCounts, setDataCounts] = useState('');
     const [dataCountsDev, setDataCountsDev] = useState('');
  
+    //Проверка данных
+    const getValidated = (data) => {
+        if (!Array.isArray(data)) {
+            console.error('Данные не корректны')
+            setError('Данные полученны некорректно')
+            return []; 
+        }
+        return data; 
+    };
 
+    
     //Распознавание размера экрана для версии верстки
     useEffect(() => {
-            const handleResize = () => {
-              setIsMobile(window.innerWidth <= 480); 
-            };
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 480); 
+        };
         
-            handleResize(); 
-            window.addEventListener("resize", handleResize); 
+        handleResize(); 
+        window.addEventListener("resize", handleResize); 
         
-            return () => window.removeEventListener("resize", handleResize);
-          }, []);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
     
     useEffect(() => {
 
@@ -50,7 +59,10 @@ export const ResultsSection = () => {
             }
 
             const data = await response.json();
-            setResponseData(data);
+
+            const validatedData = getValidated(data);
+            setResponseData({ ...data, data: validatedData });
+
 
             const totalCompanies = data.data.reduce((acc, histogram) => {   
                 return acc + histogram.data.length / 2
@@ -83,8 +95,10 @@ export const ResultsSection = () => {
             setLoading(false);
         }
     };
+    handleSubmit();
 
     }, []);
+
 
 
     //Загрузка
@@ -126,7 +140,12 @@ export const ResultsSection = () => {
          <>
             <h3 className='counts-text'>Найдено {dataCounts} {dataCountsDev}</h3>
                          
-            {isMobile ? (
+
+            {totalDocuments.length === 0 ?  
+            (
+                <p className='not-found-publications'>отсутствуют</p>
+            ) : (             
+            isMobile ? (
                 // Мобильная версия
                                     
                 <div className="carousel-item">
@@ -135,6 +154,7 @@ export const ResultsSection = () => {
                     <p className='risks'>Риски: {riskFactors[currentIndex]?.value || 0}</p>
                 </div>
             ) : (
+                
                 // Компьютерная версия
                 visibleDocuments.map((item, index) => (
                     <div key={index} className="carousel-item">
@@ -143,7 +163,7 @@ export const ResultsSection = () => {
                         <p className="risks">Риски: {visibleRiskFactors[index]?.value || 0}</p>
                     </div>
                     ))
-            )}    
+            ))}  
             <img onClick={handleNext} className="arrow-2-results" src={arrow} />    
             <img onClick={handlePrev} className="arrow-1-results" src={arrow} />          
          </>                

@@ -412,12 +412,20 @@
         width: 0px;
         font-size:0px;
     }
+    .credit-text-mobile-buisness {
+        width: 0;
+        height: 0;
+        color: transparent;
+    }
     .button-begginer-mobile-version {
         width:0px;
         height: 0px;
 
         font-size: 0px;
 
+    }
+    .button-buisness-mobile-version {
+        opacity: 0;
     }
     .button-begginer-active-mobile-version {
         width:0px;
@@ -570,9 +578,15 @@
         height: 512px;
         background-color: transparent;
         border-radius: 10px;
-        margin-left: 17px;
+        margin-left: 17px; 
+        margin-top: 5vw;
+        margin-bottom: 1vw;
         z-index: 999;
         box-shadow: 0px 0px 2px 2px black;
+    }
+    .buisness-pc-version-active {
+        width: 0px;
+        height: 0px;
     }
     .header-begginer-version-mobile {
         position: relative;
@@ -615,6 +629,9 @@
         font-size: 30px;
         margin-left: 30px;
         margin-top: 30px;
+    }
+    .head-tariff-info-buisness {
+        width: 0vw;
     }
     .header-pro-version-mobile {
         position: relative;
@@ -686,6 +703,10 @@
         font-weight: 400;
         color: black;
         margin-left: 30px;
+        margin-top: 20px;
+    }
+    .credit-text-mobile-buisness {
+        color: transparent;
         margin-top: 20px;
     }
     .button-begginer-mobile-version {
@@ -772,12 +793,17 @@
         margin-top: 30px;
         opacity: 1;
     }
+    .button-buisness-pc-version {
+        width:0px;
+        height: 0px;
+
+    }
     .head-tariff-info-mobile {
         font-family: Inter;
         font-size:20px;
         font-weight: 500;
         color: black;
-        margin-left: 30px;
+        margin-left: 25px;
         margin-top: 40px;
     }
     

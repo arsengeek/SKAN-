@@ -13,8 +13,16 @@
     width: 75vw;
     height: 5vw;
 }
-.text-loading {
+.error {
+    width: 75vw;
+    font-family:Inter;
+    font-size:18px;
+    font-weight:400;
+    justify-content: center;
 
+    margin-top: 3vw; 
+}
+.text-loading {
     width: 75vw;
     font-family:Inter;
     font-size:18px;

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import logoFooter from "./assets/6465f70937726c512fe72d7d2f4a4889.png";
 import './css/Home.css';
 import './css/tariffs.css';
 import icon from "./assets/Mask group.png";
@@ -18,9 +17,10 @@ export function Home() {
         <>  
            
             <Header/>
+            <main className="main">
             <footer className="footer1">
                 <div className="container-img"></div>
-                <img src={logoFooter} className="logo-footer"></img>
+
                 <p>г. Москва, Цветной б-р, 40 <br /> +7 495 771 21 11 <br /> info@skan.ru</p>
                 <p>Copyright. 2022</p>
             </footer>
@@ -81,6 +81,7 @@ export function Home() {
             <div className="tarif-info">
 
             
+            {/* Пк версия */}
                 <div className={userTariff === 'begginer' ? 'begginer-pc-version-active': "begginer-pc-version"}>
                     <div className="header-begginer-version">
                         <h3 className="head-text-begginer">Beginner</h3>
@@ -135,7 +136,7 @@ export function Home() {
                         <p className="head-info-text-buisness">Для корпоративных клиентов</p>
                         <div className="head-image-buisness"></div>
                     </div>
-                    <div className="main-buisness">
+
                         <h3 className="price">2 379 ₽</h3>
                         <h3 className="price-decoration-pro">3 700 ₽</h3>
                         <p className="credit-text"></p>
@@ -150,11 +151,13 @@ export function Home() {
                         ) : (
                             <button className="button-buisness-active-pc-version">Подробнее</button>
                         )}
-                    </div>
+            
                 </div>
                 </div>    
 
 
+
+                    {/* Мобильная версия */}
                 <div className={userTariff === 'begginer' ? 'begginer-mobile-version-active': "begginer-mobile-version"}>
                     <div className="header-begginer-version-mobile">
                         <h3 className="head-text-begginer-mobile">Beginner</h3>
@@ -205,14 +208,14 @@ export function Home() {
 
                 <div className={userTariff === 'buisness' ? 'buisness-mobile-version-active': "buisness-mobile-version"}>
                     <div className="header-buisness-version-mobile">
-                        <h3 className="head-text-buisness-mobile">Pro</h3>
-                        <p className="head-info-text-buisness">Для HR и фрилансеров</p>
+                        <h3 className="head-text-buisness-mobile">Buisness</h3>
+                        <p className="head-info-text-buisness">Для корпоративных клиентов</p>
                         <div className="head-image-buisness-mobile"></div>
                     </div>
                     <div className="main-begginer">
-                        <h3 className="price-mobile">1 299 ₽</h3>
-                        <h3 className="price-decoration-mobile-pro">2 600 ₽</h3>
-                        <p className="credit-text-mobile">или 279 ₽/мес. при рассрочке на 24 мес.</p>
+                        <h3 className="price-mobile">2 379 ₽</h3>
+                        <h3 className="price-decoration-mobile-pro">3 700 ₽</h3>
+                        <p className="credit-text-mobile-buisness">или 279 ₽/мес. при рассрочке на 24 мес.</p>
                         <ul className="head-tariff-info-mobile">В тариф входит:
                             <li><div className="tick"></div>Все пункты тарифа Pro</li>
                             <li><div className="tick"></div>Безлимитное количество запросов</li>
@@ -226,7 +229,7 @@ export function Home() {
                         )}
                     </div>
                 </div>
-            
+            </main>
 
             <footer className="footer2">
                 <div className="container-img"></div>

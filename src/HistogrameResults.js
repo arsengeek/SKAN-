@@ -15,6 +15,8 @@ const HistogramResults = () => {
     const [hasMore, setHasMore] = useState(true);
     const [visibleCount, setVisibleCount] = useState(2); 
 
+
+
     useEffect(() => {
             try {
                 setPublications(requestDataPublic);  
@@ -25,11 +27,19 @@ const HistogramResults = () => {
             }       
     }, [visibleCount]);
 
+    //Проверка данных
+    const getValidatedPublications = (data) => {
+        if (!Array.isArray(data)) {
+            console.error("Данные для публикаций некорректны:", data);
+            return []; 
+        }
+        return data; 
+    };
 
 //увеличение количества публикаций
-const handleShowMore = () => {
-    setVisibleCount(visibleCount + 2); 
-  };
+    const handleShowMore = () => {
+        setVisibleCount(visibleCount + 2); 
+    };
 
     //парсировка
         const extractImageSrc = (input) => {
@@ -51,14 +61,16 @@ const handleShowMore = () => {
             return '';
         };
 
-        const countWords = (text) => {
-            if (typeof text === 'string') {
-                const words = text.split(/\s+/).filter(Boolean);
-                return words.length;
-            }
-            console.error("Ошибка: текст для подсчёта слов не является строкой", text);
-            return 0;
-        };
+
+        // не используется
+        // const countWords = (text) => {
+        //     if (typeof text === 'string') {
+        //         const words = text.split(/\s+/).filter(Boolean);
+        //         return words.length;
+        //     }
+        //     console.error("Ошибка: текст для подсчёта слов не является строкой", text);
+        //     return 0;
+        // };
     //конец парсировки
     
 
@@ -96,9 +108,7 @@ const handleShowMore = () => {
     }, [data]);
 
 
-    // // Реальная итерация получения данных публикаций
-
-    
+    //  Реальная итерация получения данных публикаций
         useEffect(() => {
             const fetchData = async () => {
                 if (!requestData || requestData.length === 0) return;
@@ -131,6 +141,17 @@ const handleShowMore = () => {
     
             fetchData();
         }, [requestData]);
+
+        
+
+        useEffect(() => {
+            try {
+                const validatedData = getValidatedPublications(requestDataPublic);
+                setPublications(validatedData);
+            } catch (err) {
+                setError('Ошибка обработки');
+            }
+        }, [requestDataPublic]);
         
         if (!accessToken) {
             return <div className='login-fall'>
@@ -141,14 +162,16 @@ const handleShowMore = () => {
             </div> 
         }
 
+        
         const visiblePublications = publications.slice(0, visibleCount);
-        console.log(publications)
+        console.log(visiblePublications)
+
 
     return (
         <div className='container-results'>
             <Header/>
 
-            <main className='main'>
+            <main className='main-results'>
                 <h2 className='head-text'>Ищем. Скоро будут результаты</h2>
                 <p className='back-head-text'>Поиск может занять некоторое время, просим сохранять терпение.</p>
                 <div className='background-head'></div>
@@ -175,7 +198,11 @@ const handleShowMore = () => {
                 <div className='container-publications'>
                     <h2 className='text-documents'>Список публикаций</h2>
 
-                    {visiblePublications.map((pub, index) => {
+                    {visiblePublications.length === 0 ? (
+                        <p className='not-found-publications'>Публикации отсутствуют</p>
+                ) : (
+                    Array.isArray(visiblePublications) && 
+                    visiblePublications.map((pub, index) => {
                         
                         const content = parseContent(pub?.ok?.content?.markup);
 
@@ -216,7 +243,7 @@ const handleShowMore = () => {
                     
                             </div>
                         );
-                    })}
+                    }))};
                    
                 </div>
             </main>

@@ -148,7 +148,7 @@ export const Histograme = () => {
             };
             setRequestData(requestData)
             localStorage.setItem(requestData, 'requestData')
-            console.log(requestData)
+
         
               
             navigate('/histogramresults');

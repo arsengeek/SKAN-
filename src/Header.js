@@ -9,6 +9,7 @@ export const Header = () => {
         const accessToken = localStorage.getItem('accessToken');
         const expire = localStorage.getItem('expire');
         const [username, setUsername] = useState(''); 
+        const [image, setImage] = useState(null); 
         const [accountInfo, setAccountInfo] = useState(null);
         const [loading, setLoading] = useState(true);
         const [menu, setMenu] = useState(false);
@@ -16,7 +17,7 @@ export const Header = () => {
         useEffect(() => {
             const fetchAccountInfo = async () => {
                 if (accountInfo || !accessToken) {
-
+                    setImage(true)
                     setLoading(false);
                     return;
                 }
@@ -38,6 +39,7 @@ export const Header = () => {
         
                     const data = await response.json();
                     setAccountInfo(data.eventFiltersInfo);
+                    
                     localStorage.setItem('accountInfo', JSON.stringify(data));
                     
                 } catch (error) {
@@ -54,6 +56,7 @@ export const Header = () => {
     const handleLogout = () => {
         localStorage.removeItem('accessToken');
         setUsername(null);
+        setImage(null)
     };
 
     return (
@@ -76,7 +79,8 @@ export const Header = () => {
                 {accessToken ? (
                     
                     <div className="container-name">
-                        <h2 className="username">{username || ''}</h2>
+                        <h2 className="username">{username || 'user'}</h2>
+                        <div className={`'avatar' ${image ? 'active' : ''} `}></div>
                         <p className='exit-button' onClick={handleLogout}>Выйти</p>
                         
                         {loading ? (
